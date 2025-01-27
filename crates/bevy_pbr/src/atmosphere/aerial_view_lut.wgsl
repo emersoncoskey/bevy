@@ -32,7 +32,9 @@ fn main(@builtin(global_invocation_id) idx: vec3<u32>) {
 
     for (var slice_i: u32 = 0; slice_i < settings.aerial_view_lut_size.z; slice_i++) {
         for (var step_i: u32 = 0; step_i < settings.aerial_view_lut_samples; step_i++) {
-            let t_i = t_max * (f32(slice_i) + ((f32(step_i) + 0.5) / f32(settings.aerial_view_lut_samples))) / f32(settings.aerial_view_lut_size.z);
+            let sample_i = f32(slice_i * settings.aerial_view_lut_samples + step_i);
+            let total_samples = f32(settings.aerial_view_lut_size.z * settings.aerial_view_lut_samples);
+            let t_i = t_max * (sample_i + 0.5) / total_samples;
             let dt = (t_i - prev_t);
             prev_t = t_i;
 

@@ -32,7 +32,7 @@ fn setup_camera_fog(mut commands: Commands) {
         // aerial view lut distance and set the scene scale accordingly.
         // Most usages of this feature will not need to adjust this.
         AtmosphereSettings {
-            aerial_view_lut_max_distance: 3.2e5,
+            aerial_view_lut_max_distance: 3.2e4,
             scene_units_to_m: 1e+4,
             ..Default::default()
         },
